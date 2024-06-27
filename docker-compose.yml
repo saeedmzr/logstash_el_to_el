@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  logstash:
+    image: logstash:latest
+    volumes:
+      - ./logstash/pipeline:/usr/share/logstash/pipeline/
+      - ./logstash/pipeline/logstash.yml:/usr/share/logstash/config/pipelines.yml
+
+    depends_on:
+      - # Add dependencies here if needed (e.g., Elasticsearch)
+    ports:
+      - "9600:9600"
